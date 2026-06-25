@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تَلاقِي السَّوالِفِ | Jim Innovations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        
+        body { 
+            font-family: 'Tajawal', sans-serif; 
+            background-color: #fde047; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 20px;
+            background-image: radial-gradient(#fbbf24 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        
+        .app-card { 
+            background-color: #ffffff; 
+            border: 6px solid #8b5cf6; 
+            outline: 6px solid #b45309; 
+            border-radius: 30px; 
+            padding: 30px; 
+            width: 100%; 
+            max-width: 350px; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+        }
+
+        .question-box { 
+            background-color: #ffffff; 
+            border: 3px solid #8b5cf6; 
+            color: #581c87; 
+            padding: 25px; 
+            border-radius: 20px; 
+            margin: 20px 0; 
+            font-weight: bold; 
+            text-align: center; 
+            font-size: 1.2rem; 
+        }
+
+        .purple-btn { 
+            background-color: #8b5cf6; 
+            color: #ffffff; 
+            padding: 14px; 
+            border-radius: 15px; 
+            margin-bottom: 12px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            width: 100%; 
+            transition: 0.3s; 
+            border: none;
+        }
+        .purple-btn:hover { background-color: #6d28d9; transform: scale(1.02); }
+        
+        .jim-rights { 
+            margin-top: 25px; 
+            text-align: center;
+            color: #581c87; 
+            font-size: 11px; 
+            font-weight: bold; 
+            letter-spacing: 1px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mb-6 text-center">
+        <h1 class="text-2xl font-bold text-purple-900 tracking-widest">🎲 استمتعوا</h1>
+    </div>
+
+    <div id="main-container" class="app-card text-center">
+        <div id="content">
+            <h1 class="text-2xl font-bold text-purple-900 mb-6">تَلاقِي السَّوالِفِ</h1>
+            <div id="options">
+                <button onclick="startGame('حوارية')" class="purple-btn">حوارية 💬</button>
+                <button onclick="startGame('ضحك')" class="purple-btn">مضحكة 😂</button>
+                <button onclick="startGame('جريئة')" class="purple-btn">جريئة 🔥</button>
+            </div>
+        </div>
+        
+        <div class="jim-rights">
+            تم التطوير بواسطة <span class="text-purple-700">Jim Innovations</span><br>
+            © 2026 جميع الحقوق محفوظة
+        </div>
+    </div>
+
+    <script>
+        const questions = {
+            'حوارية': [
+                "ما هو تعريفك للسلام الداخلي؟ 💬", "لو عدت بالزمن، ماذا ستخبر نفسك؟ 🕰️", "ما هو الشيء الذي تعتبره 'معنى الحياة'؟ 🌿",
+                "لو كان بإمكانك تغيير شيء واحد في طبعك، ماذا تختار؟ 🧠", "ما هو الدرس الأهم الذي تعلمته من تجاربك؟ 🎓",
+                "كيف تصف 'السعادة' في جملة واحدة؟ ✨", "هل تفضل أن تكون محبوباً من الجميع أم محترماً؟ 🤝",
+                "ما هو الهدف الذي تسعى لتحقيقه قريباً؟ 🎯", "لو أتيحت لك فرصة العيش في حقبة أخرى، أين تذهب؟ ⏳",
+                "ما هو المعيار الذي تقيس به نجاحك الشخصي؟ 📈", "ما هي أجمل ذكريات طفولتك؟ 🧸",
+                "لو كان بإمكانك تعلم مهارة واحدة فوراً، ماذا ستختار؟ 💡", "ما الذي يجعلك تشعر بالامتنان اليوم؟ 🙏",
+                "كيف توازن بين عقلك وقلبك في اتخاذ القرارات؟ ⚖️", "ما هي أكثر صفة تعجبك في نفسك؟ 🌟"
+            ],
+            'ضحك': [
+                "لو صرت مديراً للعالم، وش أول قرار بتمنعه؟ 🌍", "أغرب كلمة تحب تردّدها بدون سبب؟ 🗣️", "وش الموقف اللي تتذكره وتضحك لحالك؟ 🤣",
+                "لو كنت طعاماً، وش راح تكون وليش؟ 🍔", "لو اكتشفت أنك بطل خارق، وش بتكون قوتك؟ 🦸‍♂️",
+                "أكثر مقلب سويته في أحد ولا زلت تضحك عليه؟ 🤡", "لو كان الحيوان اللي يمثلك أليف، وش بيكون؟ 🐹",
+                "وش أغرب شيء سويته عشان تتجنب مقابلة شخص؟ 🏃", "لو كان لك القدرة على سماع أفكار الناس، وش بتسمع؟ 🧠",
+                "وش الحركة اللي دايم تسويها وتحس إنها غبية؟ 🤪", "وش أكثر كلمة أضحكتك اليوم؟ 😂",
+                "لو خيروك تعيش في كرتون، أي واحد تختار؟ 📺", "أغرب حلم حلمته في حياتك؟ 😴",
+                "لو اضطريت ترقص في مكان عام، أي أغنية تختار؟ 💃", "وش أسوأ طبخة جربتها في حياتك؟ 🤢"
+            ],
+            'جريئة': [
+                "ما هو أكبر سر لم تخبر به أحداً؟ 🤫", "لو كان بإمكانك تغيير شيء واحد في علاقتنا؟ 💡", "ما هي الصفة التي لا تتحملها فيني؟ 🔍",
+                "ما هو أكثر شيء تندم عليه في حياتك؟ ⚖️", "ما هي أكثر كذبة كذبتها وشعرت بالذنب بعدها؟ 🤥",
+                "لو خيروك تضحي بشيء ثمين مقابل هدفك، هل بتضحي؟ 💎", "هل في موقف شعرت فيه بالخوف الشديد؟ 😨",
+                "ما هو الشيء الذي تتمنى أن الناس لا يعرفونه عنك؟ 👤", "هل سبق وأن شعرت بالغيرة من نجاح أحد؟ 🔥",
+                "ما هي الحقيقة التي تتهرب من مواجهتها دائماً؟ 🚪", "هل سبق وكسرت قلباً دون قصد؟ 💔",
+                "ما هو الموقف الذي جعلك تبكي مؤخراً؟ 😢", "ما هو أكبر تحدي واجهته في حياتك المهنية؟ 💼",
+                "لو خيروك تعتذر لشخص من ماضيك، من تختار؟ ✉️", "ما هو الشيء الذي تخجل منه أمام الناس؟ 😳"
+            ]
+        };
+
+        function startGame(mode) {
+            let index = 0;
+            const container = document.getElementById('content');
+            
+            function showQuestion() {
+                container.innerHTML = `
+                    <div class="text-purple-600 text-xs mb-3 uppercase tracking-widest font-bold">${mode}</div>
+                    <div class="question-box">${questions[mode][index]}</div>
+                    <button onclick="next()" class="text-purple-800 font-bold underline text-sm mt-2">السؤال التالي ➡️</button>
+                `;
+            }
+
+            window.next = function() {
+                index++;
+                if(index < questions[mode].length) {
+                    showQuestion();
+                } else {
+                    container.innerHTML = `
+                        <h2 class="text-xl font-bold text-purple-900 mb-4">انتهت الأسئلة! 🎉</h2>
+                        <button onclick="location.reload()" class="purple-btn">العودة للبداية 🔙</button>
+                    `;
+                }
+            };
+
+            showQuestion();
+        }
+    </script>
+</body>
+</html>
